@@ -5,11 +5,12 @@ import Paper from "@material-ui/core/Paper";
 class IndividualMovie extends Component {
   handleClick = () => {
       console.log(this.props.movie.title)
+      
   };
 
   render() {
     return (
-      <div key={this.props.movie.id} class="individualMovieDiv">
+      <div key={this.props.movie.id} className="individualMovieDiv">
         <Paper>
           <img
             className="moviePoster"
