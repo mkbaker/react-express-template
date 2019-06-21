@@ -9,6 +9,7 @@ class MovieList extends Component {
     componentDidMount() {
         this.props.dispatch({type: 'GET_MOVIES'});
     }
+    
     render() {
         return (
           <div>
@@ -19,7 +20,7 @@ class MovieList extends Component {
                 {movie.description}
               </div>
             ))} */}
-            {this.props.reduxState.movies.map(movie => <IndividualMovie movie={movie}/>)}
+            {this.props.reduxState.movies.map(movie => <IndividualMovie movie={movie} key={movie.id}/>)}
           </div>
         );
     }

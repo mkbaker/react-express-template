@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 
@@ -17,6 +17,16 @@
 .App-intro {
   font-size: large;
 }
+
+.moviePoster {
+  float: left;
+  margin-right: 20px;
+}
+
+.individualMovieDiv {
+  margin-bottom: 150px;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
