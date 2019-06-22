@@ -52,11 +52,22 @@ const genres = (state = [], action) => {
     }
 }
 
+//Used to store the last clicked movie to display at '/detail'
+const lastClicked = (state = {}, action) => {
+    switch (action.type) {
+        case 'SET_LAST_CLICKED':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        lastClicked,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
