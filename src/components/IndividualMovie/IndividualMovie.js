@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
+import { withRouter } from "react-router-dom";
 
 class IndividualMovie extends Component {
   handleClick = () => {
       console.log(this.props.movie.title)
+      this.props.history.push('/detail');
       
   };
 
@@ -27,4 +29,4 @@ class IndividualMovie extends Component {
   }
 }
 
-export default connect()(IndividualMovie);
+export default withRouter(connect()(IndividualMovie));
