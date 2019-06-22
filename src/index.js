@@ -16,6 +16,7 @@ import {takeEvery, put} from 'redux-saga/effects';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
+    yield takeEvery('GET_MOVIE_GENRES', getMovieGenres);
 }
 
 // Create sagaMiddleware
@@ -30,6 +31,18 @@ function* getMovies(action) {
         console.log('error getting movies', error);
     }
 }
+
+function* getMovieGenres(action) {
+    try {
+        console.log(action.payload.id);
+        const response = yield axios.get('/genres');
+        yield put({type: 'SET_TAGS', payload: response.data});
+    } catch (error) {
+        console.log('error getting movie genres', error);
+    }
+}
+
+
 
 
 // Used to store movies returned from the server
