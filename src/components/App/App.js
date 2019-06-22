@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 import Header from '../Header/Header';
 import MovieList from '../MovieList/MovieList';
 import Detail from '../Detail/Detail';
+import Edit from '../Edit/Edit';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -20,6 +21,7 @@ class App extends Component {
 
           <Route path="/" exact component={MovieList} />
           <Route path="/detail" component={Detail} />
+          <Route path="/edit" component={Edit} />
         </Router>
 
         <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
