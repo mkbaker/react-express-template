@@ -17,6 +17,7 @@ import {takeEvery, put} from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_MOVIE_GENRES', getMovieGenres);
+    yield takeEvery('UPDATE_DESCRIPTION', updateDescription);
 }
 
 // Create sagaMiddleware
@@ -34,11 +35,22 @@ function* getMovies(action) {
 
 function* getMovieGenres(action) {
     try {
-        console.log(action.payload.id);
+        // console.log(action.payload.id);
         const response = yield axios.get('/genres');
         yield put({type: 'SET_TAGS', payload: response.data});
     } catch (error) {
         console.log('error getting movie genres', error);
+    }
+}
+
+//sends axios request to update description of lastClicked
+function* updateDescription(action) {
+    try { 
+        const updateResponse= yield axios.put('/movies', action);
+        yield put({type: 'SET_LAST_CLICKED', payload: updateResponse.data})
+        yield put({type: 'GET_MOVIES'}); 
+    } catch(error) {
+        console.log('error with updateDescription', error);
     }
 }
 

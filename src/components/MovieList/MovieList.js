@@ -23,5 +23,5 @@ class MovieList extends Component {
 const mapReduxStateToProps = (reduxState) => ({
     reduxState
 });
-
+ 
 export default connect(mapReduxStateToProps)(MovieList);

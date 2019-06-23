@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 class IndividualMovie extends Component {
   handleClick = () => {
       console.log(this.props.movie.title)
-      this.props.dispatch({type: 'SET_LAST_CLICKED', payload: this.props.movie})
+      this.props.dispatch({type: 'SET_LAST_CLICKED', payload: this.props.movie.id})
       this.props.history.push('/detail');
       
   };

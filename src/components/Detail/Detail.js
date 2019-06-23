@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 class Detail extends Component {
     
     componentDidMount() {
-        this.props.dispatch({type: 'GET_MOVIE_GENRES', payload: this.props.reduxState.lastClicked });
+        this.props.dispatch({type: 'GET_MOVIE_GENRES'});
+        this.props.dispatch({type: 'GET_MOVIES'});
     }
 
     handleBack = () => {
@@ -18,26 +19,43 @@ class Detail extends Component {
         this.props.history.push('/edit');
     }
 
+
     render() {
         return (
-            <div>
-                <button onClick={this.handleBack}>Back to List</button>
-                <button onClick={this.handleEdit}>Edit</button>
-                <h1>{this.props.reduxState.lastClicked.title}</h1>
-                <p>{this.props.reduxState.lastClicked.description}</p>
-                <ul>
-                    {this.props.reduxState.genres.map(tag => (
-                        tag.title === this.props.reduxState.lastClicked.title ?
-                        <li key={tag.id}>{tag.name}</li> 
-                        :
-                        <></>
-                        
-                        
-                    ))}
-                </ul>
-
-            </div>
-        )
+          <div>
+            <button onClick={this.handleBack}>Back to List</button>
+            <button onClick={this.handleEdit}>Edit</button>
+            {/* loop thru movies to find the match and display title */}
+            {this.props.reduxState.movies.map(movie =>
+              movie.id === this.props.reduxState.lastClicked ? (
+                <h1>{movie.title}</h1>
+              ) : (
+                <></>
+              )
+            )}
+            
+            {/* loop thru movies to find the match and display description */}
+            {this.props.reduxState.movies.map(movie =>
+              movie.id === this.props.reduxState.lastClicked ? (
+                <p>{movie.description}</p>
+              ) : (
+                <></>
+              )
+            )}
+           
+            <h2>Genres:</h2>
+            <ul>
+              {this.props.reduxState.genres.map(tag =>
+                //ternary operator only shows genres that match with reducer lastClicked
+                tag.id === this.props.reduxState.lastClicked ? (
+                  <li key={tag.id}>{tag.name}</li>
+                ) : (
+                  <></>
+                )
+              )}
+            </ul>
+          </div>
+        );
     }
 }
 
