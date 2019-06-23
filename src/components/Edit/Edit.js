@@ -4,11 +4,15 @@ import { connect } from "react-redux";
 class Edit extends Component {
     state = {
         description: '',
-        id: this.props.reduxState.lastClicked.id
+        id: this.props.reduxState.lastClicked
     }
 
     handleCancel = () => {
         //go back to detail page on click
+        this.props.dispatch({
+          type: "SET_LAST_CLICKED",
+          payload: this.state.id
+        });
         this.props.history.push('/detail');
     }
 

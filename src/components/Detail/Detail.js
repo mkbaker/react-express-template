@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 class Detail extends Component {
     
     componentDidMount() {
+        //get the info we need 
         this.props.dispatch({type: 'GET_MOVIE_GENRES'});
         this.props.dispatch({type: 'GET_MOVIES'});
     }
@@ -33,7 +34,7 @@ class Detail extends Component {
                 <></>
               )
             )}
-            
+
             {/* loop thru movies to find the match and display description */}
             {this.props.reduxState.movies.map(movie =>
               movie.id === this.props.reduxState.lastClicked ? (
