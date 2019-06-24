@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
+//material-ui
+import Grid from "@material-ui/core/Grid";
+
 //components
 import IndividualMovie from '../IndividualMovie/IndividualMovie';
 
@@ -12,9 +15,9 @@ class MovieList extends Component {
 
     render() {
         return (
-          <div>
+          <Grid container>
             {this.props.reduxState.movies.map(movie => <IndividualMovie movie={movie} key={movie.id}/>)}
-          </div>
+          </Grid>
         );
     }
 }

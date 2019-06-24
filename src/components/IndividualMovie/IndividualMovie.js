@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import { withRouter } from "react-router-dom";
 
+//material-ui
+import Grid from "@material-ui/core/Grid";
+
 class IndividualMovie extends Component {
   handleClick = () => {
       console.log(this.props.movie.title)
@@ -13,7 +16,7 @@ class IndividualMovie extends Component {
   
   render() {
     return (
-      <div key={this.props.movie.id} className="individualMovieDiv">
+      <Grid item sm={6} key={this.props.movie.id} className="individualMovieDiv">
         <Paper>
           <img
             className="moviePoster"
@@ -25,7 +28,7 @@ class IndividualMovie extends Component {
           <p className="movieDescription">{this.props.movie.description}</p>
           <br />
         </Paper>
-      </div>
+      </Grid>
     );
   }
 }
