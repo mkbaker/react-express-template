@@ -15,7 +15,7 @@ class MovieList extends Component {
 
     render() {
         return (
-          <Grid container>
+          <Grid container spacing={6}>
             {this.props.reduxState.movies.map(movie => <IndividualMovie movie={movie} key={movie.id}/>)}
           </Grid>
         );
