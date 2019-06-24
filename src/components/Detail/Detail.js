@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+//material-ui
+import Button from "@material-ui/core/Button";
 
 class Detail extends Component {
     
@@ -24,8 +25,20 @@ class Detail extends Component {
     render() {
         return (
           <div>
-            <button onClick={this.handleBack}>Back to List</button>
-            <button onClick={this.handleEdit}>Edit</button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleBack}
+            >
+              Back to List
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleEdit}
+            >
+              Edit
+            </Button>
             {/* loop thru movies to find the match and display title */}
             {this.props.reduxState.movies.map(movie =>
               movie.id === this.props.reduxState.lastClicked ? (
@@ -43,7 +56,7 @@ class Detail extends Component {
                 <></>
               )
             )}
-           
+
             <h2>Genres:</h2>
             <ul>
               {this.props.reduxState.genres.map(tag =>
