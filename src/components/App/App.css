@@ -1,35 +1,79 @@
-.App {
-  
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
 }
 
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.alert {
+    background-color: #fe4a49;
+    margin: 40px;
+    padding: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
+/* form {
+    background-color: #dbd5d5;
+    width: 30%;
+    height: 250px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+} */
+
+.logInDiv {
+    height: 500px;
+    width: 50%;
+    margin: 25px auto;
 }
 
-.App-intro {
-  font-size: large;
+.registerPaper {
+    padding: 20px;
 }
 
-.moviePoster {
-  float: left;
-  margin-right: 20px;
+input {
+    margin: 5px;
+    margin-bottom: 10px;
 }
 
-.individualMovieDiv {
-  margin-top: 200px;
-  
+.log-in, .log-out, .register {
+    background-color: #00acb0;
+    border-radius: 4px;
+    color: #f8f8f8;
+    min-height: 50px;
+    min-width: 100px;
+    outline: 0;
+    cursor: pointer;
 }
 
+.log-in:hover, .log-out:hover, .register:hover {
+    background-color: #008183;
+}
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* This line makes the "Register" and "Login" buttons look like links */
+
+.link-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: 0;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.reviewAuctionButton {
+    float: right;
+}
+
+/* styles for AuctionItemList.js */
+
+.profileImage {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+.beneficiaryHeaderDiv {
+    padding: 10px;
+    margin-bottom: 10px;
 }
